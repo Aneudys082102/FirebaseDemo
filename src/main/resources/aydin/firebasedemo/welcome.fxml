@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      xmlns="http://javafx.com/javafx"
+      fx:controller="aydin.firebasedemo.WelcomeController"
+      alignment="CENTER"
+      spacing="20"
+      stylesheets="@styles.css">
+
+    <padding>
+        <Insets top="40" right="40" bottom="40" left="40"/>
+    </padding>
+
+    <Label text="Welcome to Firebase Demo" styleClass="title-label"/>
+
+    <VBox spacing="15" alignment="CENTER" styleClass="form-container">
+
+        <VBox spacing="5">
+            <Label text="Email:"/>
+            <TextField fx:id="emailField" promptText="Enter your email" prefWidth="300"/>
+        </VBox>
+
+        <VBox spacing="5">
+            <Label text="Password:"/>
+            <PasswordField fx:id="passwordField" promptText="At least 6 characters" prefWidth="300"/>
+        </VBox>
+
+        <HBox spacing="15" alignment="CENTER" styleClass="button-row">
+            <Button fx:id="registerButton" text="Register" onAction="#handleRegister" prefWidth="120"/>
+            <Button fx:id="signInButton" text="Sign In" onAction="#handleSignIn" styleClass="secondary" prefWidth="120"/>
+        </HBox>
+    </VBox>
+
+</VBox>

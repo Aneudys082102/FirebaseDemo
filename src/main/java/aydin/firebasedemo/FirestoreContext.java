@@ -4,32 +4,40 @@ import com.google.auth.oauth2.GoogleCredentials;
 import com.google.cloud.firestore.Firestore;
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
-
 import com.google.firebase.cloud.FirestoreClient;
 
-import java.io.FileInputStream;
+import java.io.InputStream;
 import java.io.IOException;
 
 public class FirestoreContext {
 
-    public Firestore firebase() {
-        try {
+    private static Firestore firestore;
 
-            FileInputStream serviceAccount =
-                    new FileInputStream("src/main/resources/aydin/firebasedemo/key.json");
+    public static Firestore getFirestore() {
+        if (firestore == null) {
+            try (InputStream serviceAccount = FirestoreContext.class
+                    .getClassLoader()
+                    .getResourceAsStream("ServiceAccountKey.json")) {
 
-            FirebaseOptions options = FirebaseOptions.builder()
-                    .setCredentials(GoogleCredentials.fromStream(serviceAccount))
-                    .build();
+                if (serviceAccount == null) {
+                    throw new IOException("ServiceAccountKey.json not found in resources folder.");
+                }
 
-            FirebaseApp.initializeApp(options);
+                if (FirebaseApp.getApps().isEmpty()) {
+                    FirebaseOptions options = FirebaseOptions.builder()
+                            .setCredentials(GoogleCredentials.fromStream(serviceAccount))
+                            .setProjectId("module-7-lab-a0045")
+                            .build();
+                    FirebaseApp.initializeApp(options);
+                }
 
-        } catch (IOException ex) {
-            ex.printStackTrace();
-            System.exit(1);
+                firestore = FirestoreClient.getFirestore();
+
+            } catch (IOException ex) {
+                ex.printStackTrace();
+                throw new RuntimeException("Failed to initialize Firestore", ex);
+            }
         }
-        return FirestoreClient.getFirestore();
+        return firestore;
     }
-
-
 }

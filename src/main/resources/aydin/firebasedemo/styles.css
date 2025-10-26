@@ -1,0 +1,111 @@
+/* Firebase Color Palette */
+/* Orange: #FF6F00, #FFA000 */
+/* Yellow: #FFCA28 */
+/* Blue: #039BE5 */
+/* Dark: #212121 */
+
+.root {
+    -fx-font-family: "Segoe UI", Arial, sans-serif;
+    -fx-background-color: #FAFAFA;
+}
+
+.label {
+    -fx-text-fill: #212121;
+    -fx-font-size: 14px;
+}
+
+.title-label {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FF6F00;
+    -fx-padding: 20px 0 20px 0;
+}
+
+.section-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #424242;
+    -fx-padding: 10px 0 5px 0;
+}
+
+.text-field, .password-field {
+    -fx-background-color: white;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-padding: 8px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #FF6F00;
+    -fx-border-width: 2px;
+}
+
+.button {
+    -fx-background-color: #FF6F00;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 4px;
+    -fx-cursor: hand;
+}
+
+.button:hover {
+    -fx-background-color: #F57C00;
+}
+
+.button:pressed {
+    -fx-background-color: #E65100;
+}
+
+.button.secondary {
+    -fx-background-color: #039BE5;
+}
+
+.button.secondary:hover {
+    -fx-background-color: #0288D1;
+}
+
+.button.secondary:pressed {
+    -fx-background-color: #0277BD;
+}
+
+.text-area {
+    -fx-background-color: white;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 4px;
+    -fx-background-radius: 4px;
+    -fx-font-family: "Consolas", monospace;
+    -fx-font-size: 13px;
+}
+
+.text-area .content {
+    -fx-background-color: white;
+}
+
+.container {
+    -fx-background-color: white;
+    -fx-padding: 30px;
+    -fx-spacing: 15px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 2);
+}
+
+.form-container {
+    -fx-spacing: 15px;
+    -fx-padding: 20px;
+}
+
+.input-row {
+    -fx-spacing: 10px;
+    -fx-alignment: center-left;
+}
+
+
+.button-row {
+    -fx-spacing: 15px;
+    -fx-alignment: center;
+    -fx-padding: 10px 0 0 0;
+}
